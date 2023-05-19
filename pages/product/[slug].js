@@ -12,11 +12,11 @@ const Slug = ({addToCart}) => {
     const fetchData = async () => {
         const paramsDATA = new URLSearchParams(window.location.search);
       const name = paramsDATA.get("slug");
-      const token = '72cbf50fe9deb3a54102ba1e814554c60af4ea1a6ae4beb978247e5dfbe58522e7b010bc9ddfb8b4926ae39541b66567af6439b506493a7e370fb4d61a36f5127b870bb51679b36917ddeea3c4609e672d83a33b7a7468c732a176e36861c5e58b280a507b386698396dfd523ef39eb2731152e209e80a7ee762784394de2564';
+      const token = '7699b8a63bb5556d458dfebc11f2acdcdca4e5413e7a820682d9c599a11c387dd194b14afc1dcb80a11c6abd7f27251d0b19c70cfb5d8f4384c2214f3840c21beeb32bf0c7d8a05804d84b80767641f3e4ad7bac1fbd16059c97ff9239a5ff88cff8ae9efac469fa27de56f0f4730a8ebd2ec5d64d8304c2b01a166f40a011a9';
       const axiosInstance = axios.create({
         headers: { Authorization: `Bearer ${token}` },
       });
-      const response = await axiosInstance.get(`http://localhost:1337/api/products?filters[slug]=${slug}`);
+      const response = await axiosInstance.get(`http://localhost:1337/api/products?filters[slug]=${slug}&populate=*`);
       setData(response.data.data[0]);
       console.log(data);
     };
@@ -30,7 +30,7 @@ const Slug = ({addToCart}) => {
   {data &&
     <div className="lg:w-4/5 mx-auto flex flex-wrap">
 
-      <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://dummyimage.com/400x400"/>
+      <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-68 object-cover object-center rounded" src={data.attributes.image.data.attributes.url}/>
       <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
         <h2 className="text-sm title-font text-gray-500 tracking-widest">Myshop</h2>
         <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{data.attributes.title}</h1>

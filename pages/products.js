@@ -6,7 +6,7 @@ const Products = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
-      const token = '72cbf50fe9deb3a54102ba1e814554c60af4ea1a6ae4beb978247e5dfbe58522e7b010bc9ddfb8b4926ae39541b66567af6439b506493a7e370fb4d61a36f5127b870bb51679b36917ddeea3c4609e672d83a33b7a7468c732a176e36861c5e58b280a507b386698396dfd523ef39eb2731152e209e80a7ee762784394de2564';
+      const token = '7699b8a63bb5556d458dfebc11f2acdcdca4e5413e7a820682d9c599a11c387dd194b14afc1dcb80a11c6abd7f27251d0b19c70cfb5d8f4384c2214f3840c21beeb32bf0c7d8a05804d84b80767641f3e4ad7bac1fbd16059c97ff9239a5ff88cff8ae9efac469fa27de56f0f4730a8ebd2ec5d64d8304c2b01a166f40a011a9';
       const axiosInstance = axios.create({
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -26,7 +26,7 @@ const Products = () => {
       <div className="flex flex-wrap w-full mb-20">
         <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">product list-myshop</h1>
-          <div className="h-1 w-20 bg-indigo-500 rounded"></div>
+          <div className="h-1 w-50 bg-indigo-500 rounded"></div>
         </div>
         
       </div>
